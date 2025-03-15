@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, white);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    background: white;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-header h2 {
+    color: #4CAF50;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .close-btn {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa các hàng */
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  form label {
+    width: 150px;  /* Độ rộng cố định cho label */
+    font-weight: bold;
+  }
+  
+  form input, form select {
+    flex: 1;  /* Input sẽ chiếm hết không gian còn lại */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .time-select {
+    display: flex;
+    gap: 10px;
+    flex: 1;  /* Căn đều phần thời gian */
+  }
+  
+  .time-select select {
+    flex: 1;
+  }
+  
+  .update-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .update-btn:hover {
+    background-color: #43A047;
+  }
+  

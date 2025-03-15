@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPERIENCE Form</title>
+    <link rel="stylesheet" href="../css/style_add_experience.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <i class="fas fa-times close-btn"></i>
+        <h1>EXPERIENCE</h1>
+        <form>
+            <div class="form-group">
+                <label for="Company">Company</label>
+                <input type="text" id="Company" name="Company" placeholder="Enter company name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" id="position" name="position" placeholder="Your position" required>
+            </div>
+
+            <div class="form-group">
+                <label>Time</label>
+                <div class="time-fields">
+                    <div class="time-field">
+                        <label for="begin">Begin</label>
+                        <div class="dob">
+                            <select id="begin-month" name="begin-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="begin-year" name="begin-year" required>
+                                <option value="">Year</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="time-field">
+                        <label for="end">End</label>
+                        <div class="dob">
+                            <select id="end-month" name="end-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="end-year" name="end-year" required>
+                                <option value="">Year</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    <script>
+        // Thêm mã JavaScript để đóng form khi nhấn vào biểu tượng dấu nhân
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.form-container').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

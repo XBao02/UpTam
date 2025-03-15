@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Job Search Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link href="css/setting.css" rel="stylesheet">
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+</head>
+
+<body id="home" class="bg-gray-100">
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="flex items-center">
+                <!-- <img alt="TopCV logo" class="h-10" height="40" src="img/logo.png" width="100"/> -->
+                <h1>FutereTrack</h1>
+            </div>
+            <nav class="ml-10 space-x-4 flex-1 flex justify-center">
+                <a class="text-gray-700 hover:text-blue-500" href="#home">Home</a>
+                <div class="dropdown">
+                    <a class="text-gray-700 hover:text-blue-500" href="#">Profile & CV</a>
+                    <div class="dropdown-content">
+                        <a href="profile/profile.html">Create CV</a>
+                        <a href="#">Upload CV</a>
+                        <a href="#">Create Letter Cover</a>
+                        <a href="#">CV Management</a>
+                        <a href="#">Manage Cover Letter</a>
+                        <a href="#">Instructions for Writing CV by Industry</a>
+                        <a href="#">CV Library by Industry</a>
+                        <a href="#">TopCV Profile</a>
+                    </div>
+                </div>
+                <a class="text-gray-700 hover:text-blue-500" href="#">Career HandBook</a>
+                <a class="text-gray-700 hover:text-blue-500" href="#">Blog</a>
+                <a class="text-gray-700 hover:text-blue-500" href="#contact">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a class="text-gray-700 hover:text-blue-500" href="#">Posted Now ! </a>
+                <div class="relative">
+                    <i class="fas fa-bell text-gray-700"></i>
+                    <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
+                <div class="relative">
+                    <!-- Biểu tượng người dùng -->
+                    <i id="user-icon" class="fas fa-user-circle text-gray-700 cursor-pointer"></i>
+
+                    <!-- Dropdown menu -->
+                    <div id="user-menu" class="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg hidden">
+                        <p id="username" class="px-4 py-2">Hello, User</p>
+                        <a href="profile/cv.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Document
+                            Management</a>
+                        <button id="logout-btn"
+                            class="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">Log out</button>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!-- đoạn js xử lí đn -->
+    <script>
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+        if (isLoggedIn && user) {
+            document.getElementById("username").innerText = "Hello, " + user.name;
+        } else {
+            window.location.href = "gd_dn.html"; // Chưa đăng nhập thì chuyển hướng
+        }
+
+        // Xử lý hiển thị menu người dùng
+        document.getElementById("user-icon").addEventListener("click", function () {
+            const dropdown = document.getElementById("user-menu");
+            dropdown.classList.toggle("hidden");
+        });
+
+        // Xử lý đăng xuất
+        document.getElementById("logout-btn").addEventListener("click", function () {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("currentUser"); // Xóa thông tin người dùng
+            window.location.href = "gd_dn.html";
+        });
+
+        document.getElementById('profileDropdown').addEventListener('mouseenter', function () {
+            document.getElementById('dropdownMenu').style.display = 'block';
+        });
+
+        document.getElementById('profileDropdown').addEventListener('mouseleave', function () {
+            document.getElementById('dropdownMenu').style.display = 'none';
+        });
+
+
+    </script>
+
+    <main class="container mx-auto mt-6 px-6">
+        <div class="bg-blue-900 text-white p-6 rounded-lg">
+            <h1 class="text-2xl font-bold">Looking for fast work 24 hours, the latest jobs nationwide.</h1>
+            <p class="mt-2">Approach <span class="font-bold">40,000+</span> Recruitment news every day from goods
+                thousands of reputable businesses in Vietnam</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="searchTerm" class="search-input" placeholder="Nhập từ khoá...">
+                    <button class="search-button">Search </button>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 flex space-x-4">
+            <div class="w-1/4 bg-white p-4 rounded-lg shadow">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-bold">Category</h2>
+                    <i class="fas fa-bars text-gray-700"></i>
+                </div>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex justify-between items-center">
+                        <span>Business/Sales</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Marketing/PR/Advertising</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Customer care (Custom ...</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Human Resources/Administration/Legal</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Finance/Banking/Insurance</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span>Information technology</span>
+                        <i class="fas fa-chevron-right text-gray-700"></i>
+                    </li>
+                </ul>
+                <div class="flex justify-between items-center mt-4">
+                    <span>1/4</span>
+                    <i class="fas fa-chevron-right text-gray-700"></i>
+                </div>
+            </div>
+            <div class="w-3/4 bg-white p-4 rounded-lg shadow">
+                <div class="relative">
+                    <img alt="Advertisement banner" class="w-full rounded-lg" height="100"
+                        src="assets/images/công-nghệ-thông-tin.png.jpeg" width="600" />
+                </div>
+            </div>
+        </div>
+        <div class="mt-6 bg-white p-4 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+                <h2 class="text-lg font-bold text-blue-500">Best jobs</h2>
+            </div>
+            <div class="flex space-x-4 mt-4">
+                <select class="p-2 border rounded-lg">
+                    <option>Location</option>
+                </select>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Random</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Hà Nội</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Hồ Chí Minh City</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">North</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Southern</button>
+            </div>
+            <div class="mt-4 flex items-center space-x-4">
+                <span class="text-gray-500">Gợi ý: Di chuột vào tiêu đề việc làm để xem thêm thông tin chi tiết</span>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Xem tất cả</button>
+            </div>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Nhân Viên Kinh Doanh Nha Khoa (Thu Nhập Từ 15 - 25 Triệu)</h3>
+                    <p class="text-gray-500">CÔNG TY TNHH THIẾT BỊ Y TẾ DENTA TA</p>
+                    <p class="text-gray-500">15 - 25 triệu</p>
+                    <p class="text-gray-500">Hồ Chí Minh</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Nhân Viên Chăm Sóc Khách Hàng - CSKH / Resale Tại Hà Nội - Không Y
+                    </h3>
+                    <p class="text-gray-500">Hồ Kinh doanh RESALE DUCA</p>
+                    <p class="text-gray-500">10 - 30 triệu</p>
+                    <p class="text-gray-500">Hà Nội</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Chuyên Viên Phát Triển Đối Tác</h3>
+                    <p class="text-gray-500">CÔNG TY CỔ PHẦN CÔNG NGHỆ &amp; SÁNG T</p>
+                    <p class="text-gray-500">16 - 40 triệu</p>
+                    <p class="text-gray-500">Hà Nội &amp; 2 nơi khác</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Nhân Viên Sales Xuất Khẩu - Thu Nhập Lên Đến 30 Triệu Đồng - 1 Năm
+                        Kinh</h3>
+                    <p class="text-gray-500">CÔNG TY CỔ PHẦN Kinh doanh xuất khẩu</p>
+                    <p class="text-gray-500">30 triệu</p>
+                    <p class="text-gray-500">Hà Nội</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Chuyên Viên Kế Toán Nghiệp Vụ Tại Hà Nội</h3>
+                    <p class="text-gray-500">TỔNG CÔNG TY CỔ PHẦN BẢO HI</p>
+                    <p class="text-gray-500">20 triệu</p>
+                    <p class="text-gray-500">Hà Nội</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="text-lg font-bold">Ms. Hương Nguyễn</h3>
+                    <p class="text-gray-500">Hỗ trợ trực tuyến</p>
+                </div>
+            </div>
+        </div>
+        <!-- top CV -->
+        <section class="bg-white font-roboto">
+            <div class="container mx-auto py-12">
+                <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">
+                    Top CV
+                </h1>
+                <p class="text-center text-gray-600 mb-12">
+                    These are the most beautiful CV members that employers often choose.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border border-gray-200 p-6 text-center">
+                        <img alt="Placeholder image for Character 1" class="mx-auto mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/f9fsGlz2JrC8b59NkdZ1R6bbAX2gcdeEg5sYuIEUWHM.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-bold text-gray-800 mb-2">
+                            Character 1
+                        </h2>
+                        <p class="text-gray-600 mb-4">
+                            The future depends on what you do today.
+                        </p>
+                        <button class="bg-gray-800 text-white py-2 px-4 rounded-full">
+                            LEARN MORE
+                        </button>
+                    </div>
+                    <div class="border border-gray-200 p-6 text-center">
+                        <img alt="Placeholder image for Character 2" class="mx-auto mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/m97H9ahq_tt-hDTn98_K6ZCeX2TOJSa3y1jZrYUWVCM.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-bold text-gray-800 mb-2">
+                            Character 2
+                        </h2>
+                        <p class="text-gray-600 mb-4">
+                            The future depends on what you do today.
+                        </p>
+                        <button class="bg-gray-800 text-white py-2 px-4 rounded-full">
+                            LEARN MORE
+                        </button>
+                    </div>
+                    <div class="border border-gray-200 p-6 text-center">
+                        <img alt="Placeholder image for Character 3" class="mx-auto mb-4" height="200"
+                            src="https://storage.googleapis.com/a1aa/image/uJQEJRUtyBPdN6qVfCCD1k3JPBE22xzm4Ve4OsW3E-A.jpg"
+                            width="300" />
+                        <h2 class="text-xl font-bold text-gray-800 mb-2">
+                            Character 3
+                        </h2>
+                        <p class="text-gray-600 mb-4">
+                            The future depends on what you do today.
+                        </p>
+                        <button class="bg-gray-800 text-white py-2 px-4 rounded-full">
+                            LEARN MORE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần learn more -->
+        <section class="bg-blue-50">
+            <div class="max-w-6xl mx-auto py-16 px-4 text-center">
+                <h1 class="text-3xl font-bold text-gray-800 mb-4">ABOUT FUTURETRACK</h1>
+                <hr class="border-t-2 border-gray-300 w-24 mx-auto mb-8">
+                <p class="text-gray-700 text-lg leading-relaxed mb-12 mx-8">
+                    Our project aims to build a dynamic and intelligent career development platform designed to help
+                    students create, improve and manage their CVs throughout their academic journey. From their first
+                    year, students can start creating their CVs and continuously update them with new skills,
+                    achievements, projects and experiences until graduation. In addition, our platform connects students
+                    with job and internship opportunities by allowing companies to post job descriptions and search for
+                    suitable candidates. Students can discover job postings that match their skills and career
+                    aspirations, while businesses can access a pool of talented candidates through their CVs. To further
+                    support career development, the platform includes features such as a networking tool, portfolio
+                    showcase and real-time CV feedback from recruiters or career advisors. In the future, AI-powered CV
+                    analysis will allow students to upload their existing resumes for instant recommendations and
+                    improvements, making the job application process more efficient. By bridging the gap between
+                    students and employers, our platform empowers young professionals to confidently enter the job
+                    market with strong, well-crafted CVs.
+                </p>
+                <div class="flex justify-center space-x-8">
+                    <div class="text-center">
+                        <i class="fas fa-file-alt text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-bold text-gray-800">Easy To Use</p>
+                        <p class="text-gray-600">Students can create and continuously update their CVs easily.</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-upload text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-bold text-gray-800">Fast Upload</p>
+                        <p class="text-gray-600">Students can upload CVs quickly and get fast replies from businesses.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-trophy text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-bold text-gray-800">Top CV</p>
+                        <p class="text-gray-600">Students can view top CV formats and choose the best one for their CV.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <!-- top cong việc -->
+        <section class="bg-gray-100">
+            <div class="container mx-auto p-4">
+                <h2 class="text-green-600 text-2xl font-bold mb-4">
+                    Top outstanding industries
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Business and Sales Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/SWoMJg2ZxUw-UjDSLdkKyTzlDh0XzSs0gQFTQj8bho8.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Business - Sales
+                        </h3>
+                        <p class="text-green-600">
+                            13.660 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Marketing and PR Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/dlauKTwN5FCXXjCOG_uFHHxMx-mnWiYb29b5uHpUv6k.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Marketing - PR - Ads
+                        </h3>
+                        <p class="text-green-600">
+                            9.183 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Customer Service Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/UsFyXso_EI5hmz3Vc6UHz-woWxrgKYmqNbW_TV37b0M.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Customer care
+                        </h3>
+                        <p class="text-green-600">
+                            2.948 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Human Resources Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/nC9-9vLfz0HPv-WSTKIle6lhiTHMITB3PIO84qZ_fyo.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Personnel - Administration
+                        </h3>
+                        <p class="text-green-600">
+                            5.362 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Finance and Banking Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/_1HATpw2f1Bk7aTpFWtG9PruiBNL2vMpgpgf-WsaxzM.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Finance - banking
+                        </h3>
+                        <p class="text-green-600">
+                            1.095 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Information Technology Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/Pzrzy4bF8INPDtyM_P1sGn5UlQip0BMeyguZRZSdLX4.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Information technology
+                        </h3>
+                        <p class="text-green-600">
+                            4.895 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Real Estate and Construction Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/Ka-H6dn8TVapbA4mdtlMdZNJspnvbPGVK8BzZVFxegc.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Real Estate - Construction
+                        </h3>
+                        <p class="text-green-600">
+                            2.570 việc làm
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <img alt="Accounting and Tax Icon" class="mb-2" height="64"
+                            src="https://storage.googleapis.com/a1aa/image/GzoDuxmOVnLiSrRtsSPOWCOoFvGkgZ1-dlo98fsS1DU.jpg"
+                            width="64" />
+                        <h3 class="text-lg font-semibold">
+                            Accounting - Auditing - Tax
+                        </h3>
+                        <p class="text-green-600">
+                            5.464 việc làm
+                        </p>
+                    </div>
+                </div>
+                <h2 class="text-green-600 text-2xl font-bold mb-4">
+                    The employer stands out
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-green-600 mr-2">
+                            </i>
+                            <span class="text-green-600 font-semibold">
+                                TOP
+                            </span>
+                        </div>
+                        <img alt="TEKY Logo" class="mb-2" height="128"
+                            src="https://storage.googleapis.com/a1aa/image/J7r762SMZBJSJZBhLHs24Twi9ZGprOca5N6fhk68xfA.jpg"
+                            width="128" />
+                        <h3 class="text-lg font-semibold">
+                            TEKY
+                        </h3>
+                        <p class="text-gray-600">
+                            Young can do IT
+                        </p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-green-600 mr-2">
+                            </i>
+                            <span class="text-green-600 font-semibold">
+                                TOP
+                            </span>
+                        </div>
+                        <img alt="MISA Logo" class="mb-2" height="128"
+                            src="https://storage.googleapis.com/a1aa/image/TVk_NSaZAs6xgbO_EWWxaUipk4Mpx-X2NXtm00TQ_Jg.jpg"
+                            width="128" />
+                        <h3 class="text-lg font-semibold">
+                            MISA
+                        </h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-green-600 mr-2">
+                            </i>
+                            <span class="text-green-600 font-semibold">
+                                TOP
+                            </span>
+                        </div>
+                        <img alt="Viettel Logo" class="mb-2" height="128"
+                            src="https://storage.googleapis.com/a1aa/image/7ab4HrpltXxKWsxmz0dCysv8aDOKZHp0FJpweZ2B3is.jpg"
+                            width="128" />
+                        <h3 class="text-lg font-semibold">
+                            Viettel
+                        </h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-green-600 mr-2">
+                            </i>
+                            <span class="text-green-600 font-semibold">
+                                TOP
+                            </span>
+                        </div>
+                        <img alt="Viettel Logo" class="mb-2" height="128"
+                            src="https://storage.googleapis.com/a1aa/image/7ab4HrpltXxKWsxmz0dCysv8aDOKZHp0FJpweZ2B3is.jpg"
+                            width="128" />
+                        <h3 class="text-lg font-semibold">
+                            Viettel
+                        </h3>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-center">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-heart text-green-600 mr-2">
+                            </i>
+                            <span class="text-green-600 font-semibold">
+                                TOP
+                            </span>
+                        </div>
+                        <img alt="EDUPIA Logo" class="mb-2" height="128"
+                            src="https://storage.googleapis.com/a1aa/image/K0oei29Rff6E5B66_Sb1A-s4nNeMdNTBHVvNZ89cZfM.jpg"
+                            width="128" />
+                        <h3 class="text-lg font-semibold">
+                            EDUPIA
+                        </h3>
+                        <p class="text-gray-600">
+                            Tiếng Anh online chất lượng cao
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- liên lạc -->
+        <section id="contact" class="bg-white text-gray-800">
+            <div class="container mx-auto py-16 px-4">
+                <h1 class="text-4xl font-bold text-center mb-4">Get In Touch</h1>
+                <p class="text-center text-gray-600 mb-12">To doesn't his appear replenish together called he of mad
+                    place won't wherein blessed second every wherein were meat kind wherein and martcin</p>
+                <div
+                    class="flex flex-col md:flex-row justify-center items-start md:items-center space-y-8 md:space-y-0 md:space-x-16">
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-500 text-white p-4 rounded-full">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>848 E 28TH ST, BROOKLYN NEW YORK, USA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-500 text-white p-4 rounded-full">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>EXAMPLE@.COM</p>
+                                <p>EXAMPLE@.COM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-blue-500 text-white p-4 rounded-full">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p>+02 365 2365 3265 (02)</p>
+                                <p>+02 365 2365 3265 (02)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <form class="space-y-4">
+                            <input type="text" placeholder="FIRST NAME"
+                                class="w-full p-4 border border-gray-300 rounded">
+                            <input type="email" placeholder="EMAIL ADDRESS"
+                                class="w-full p-4 border border-gray-300 rounded">
+                            <textarea placeholder="WRITE COMMENT"
+                                class="w-full p-4 border border-gray-300 rounded h-32"></textarea>
+                            <button type="submit" class="w-full bg-blue-500 text-white py-4 rounded-full">SUBMIT
+                                NOW</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- cái form dưới -->
+        <footer class="footer">
+            <div class="container">
+                <a href="index.html" class="footer__logo">
+                    <img src="" alt="" />
+                </a>
+                <nav class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Home</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Profile & CV</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Career Handbook</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Article</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <ul class="footer__social">
+                    <li class="footer__social-item">
+                        <i class="fab fa-facebook"></i>
+                    </li>
+                    <li class="footer__social-item">
+                        <i class="fab fa-instagram"></i>
+                    </li>
+                    <li class="footer__social-item">
+                        <i class="fab fa-twitter"></i>
+                    </li>
+                    <li class="footer__social-item">
+                        <i class="fab fa-google"></i>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        </div>
+    </main>
+</body>
+
+</html>

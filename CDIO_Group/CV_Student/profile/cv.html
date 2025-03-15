@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Richard Sanchez</title>
+    <link rel="stylesheet" href="../css/style_CV.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+
+
+</head>
+<body>
+   <div class="download-container">
+    <button id="download-btn">
+        <i class="fas fa-download"></i> Download CV
+    </button>
+    <div class="download-options">
+        <button id="download-pdf"><i class="fas fa-file-pdf"></i> PDF</button>
+        <button id="download-img"><i class="fas fa-image"></i> PNG</button>
+    </div>
+</div>
+<!-- Thêm nút chia sẻ -->
+<div class="share-container">
+    <button id="share-btn">
+        <i class="fas fa-share-alt"></i> Share CV
+    </button>
+    <div class="share-options">
+        <button id="share-email"><i class="fas fa-envelope"></i> Email</button>
+        <button id="share-link"><i class="fas fa-link"></i> Copy Link</button>
+        <button id="share-facebook"><i class="fab fa-facebook"></i> Facebook</button>
+        <button id="share-twitter"><i class="fab fa-twitter"></i> Twitter</button>
+    </div>
+</div>
+</div>
+<div id="copy-toast" class="copy-toast">Link copied to clipboard!</div>
+
+
+    <div class="cv-container">
+          <!-- Ảnh đại diện (Đặt riêng) -->
+    <div class="profile-pic">
+        <img src="images/avatar-trang-4.jpg" alt="Profile Picture">
+    </div>
+         <!-- Ảnh bìa -->
+    <header class="profile-cover">
+        <img src="" alt="">
+        <div class="header-text">
+            <h1>RICHARD SANCHEZ</h1>
+            <h5>MARKETING MANAGER</h5>
+        </div>
+        </header>
+
+        <div class="cv-body">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="contact-info">
+                    <h3>CONTACT</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Anywhere St., Any City</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:hello@reallygreatsite.com">hello@reallygreatsite.com</a></p>
+                    <p><i class="fas fa-phone-alt"></i> +123-456-7890</p>
+                    <p><i class="fab fa-github"></i> <a href="https://www.reallygreatsite.com" target="_blank">github.com/yourprofile</a></p>
+                </div>
+                
+                <div class="skills">
+                    <h3>SKILLS</h3>
+                    <ul id="cv-skill-list">
+                        <!-- Kỹ năng sẽ hiển thị ở đây từ LocalStorage -->
+                    </ul>                  
+                </div>
+                <div class="languages">
+                    <h3>LANGUAGES</h3>
+                    <ul id="cv-language-list">
+                        <!-- Ngôn ngữ sẽ hiển thị ở đây từ LocalStorage -->
+                    </ul>
+                </div>
+                
+                <div class="reference">
+                    <h3>REFERENCES</h3>
+                    <ul>
+                        <li contenteditable="true">Estelle Darcy</li>
+                        <li contenteditable="true">Wardiere Inc./CTO</li>
+                        <li contenteditable="true">Phone: 123-456-7890</li>
+                        <li contenteditable="true">Email: hello1234@gmail.com</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <section class="profile">
+                    <h2><i class="fas fa-user"></i>&nbsp; PROFILE</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </section>
+
+                <section class="experience">
+                    <h2><i class="fas fa-briefcase"></i>&nbsp; WORK EXPERIENCE</h2>
+                    <div id="experience-list"></div>
+                </section>
+
+                <section class="education">
+                    <h2><i class="fas fa-graduation-cap"></i>&nbsp; EDUCATION</h2>
+                
+                    <div class="degree">
+                        <h3>Master of Business Management</h3>
+                        <span class="time">3/2029 - 6/2031</span>
+                    </div>
+                    <p class="degree-info">School of Business | Wardiere University</p>
+                    <p class="degree-info"><strong>GPA:</strong> 3.8 / 4.0</p>
+                
+                    <div class="degree">
+                        <h3>Bachelor of Business Management</h3>
+                        <span class="time">4/2025 - 7/2029</span>
+                    </div>
+                    <p class="degree-info">School of Business | Wardiere University</p>
+                    <p class="degree-info"><strong>GPA:</strong> 3.8 / 4.0</p>
+                </section>
+                
+                <section class="certificate">
+                    <h2><i class="fas fa-certificate"></i>&nbsp; CERTIFICATE</h2>
+                
+                    <div class="degree">
+                        <h3>Certificate Name</h3>
+                        <span class="time">3/2015</span>
+                    </div>
+                    <p class="degree-info">Organization</p>
+                </section>
+
+                    <section class="prize">
+                        <h2><i class="fas fa-trophy"></i>&nbsp; PRIZE</h2>
+                        <div class="degree">
+                            <h3>Prize Name</h3>
+                            <span class="time">3/2029</span>
+                        </div>
+                        <p class="degree-info">Organization</p>
+                    </section>
+                    
+
+                    <section class="project">
+                        <h2><i class="fas fa-folder"></i>&nbsp; PROJECT</h2>
+                        <div class="degree">
+                            <h3>Project Name</h3>
+                            <span class="time">3/2029 - 5/2031</span>
+                        </div>
+                        <p class="degree-info">Customer</p>
+                        <p class="degree-info">Position</p>
+                        <p class="degree-info">Mission</p>
+                        <p class="degree-info">Technology</p>
+                    </section> 
+                    
+            </main>
+        </div>
+    </div>
+    
+        <script>
+    window.onload = function () {
+        let savedProfile = localStorage.getItem("userProfile");
+    
+        if (savedProfile) {
+            let profileData = JSON.parse(savedProfile);
+    
+            // ✅ Cập nhật avatar và ảnh bìa
+            document.querySelector(".profile-pic img").src = profileData.avatar || "images/avatar-trang-4.jpg";
+            document.querySelector(".profile-cover img").src = profileData.cover || "";
+    
+            // ✅ Cập nhật thông tin cá nhân
+            document.querySelector(".header-text h1").textContent = profileData.fullName || "Your Name";
+            document.querySelector(".header-text h5").textContent = profileData.jobPosition || "Job Position";
+            document.querySelector(".profile p").textContent = profileData.intro || "Introduce yourself.";
+    
+            // ✅ Cập nhật thông tin liên hệ
+            let contactInfo = document.querySelector(".contact-info");
+            contactInfo.innerHTML = `
+    <h3>CONTACT</h3>
+    <p><i class="fas fa-map-marker-alt"></i> ${profileData.address || "N/A"}</p>
+    <p><i class="fas fa-envelope"></i> ${profileData.email ? `<a href="mailto:${profileData.email}">${profileData.email}</a>` : "N/A"}</p>
+    <p><i class="fas fa-phone-alt"></i> ${profileData.phone || "N/A"}</p>
+    <p><i class="fab fa-github"></i> ${profileData.github ? `<a href="${profileData.github}" target="_blank">${profileData.github}</a>` : "N/A"}</p>
+`;
+if (profileData.skills) {
+    let skillList = document.getElementById("cv-skill-list");
+    skillList.innerHTML = ""; // Xóa nội dung cũ
+
+    let skills = JSON.parse(profileData.skills);
+    skills.forEach(skill => {
+        let skillItem = document.createElement("li");
+        skillItem.textContent = skill; // Chỉ hiển thị nội dung kỹ năng, không có nút Remove
+        skillList.appendChild(skillItem);
+    });
+
+}
+
+if (profileData.languages) {
+    let languageList = document.getElementById("cv-language-list");
+    languageList.innerHTML = "";
+
+    let languages = JSON.parse(profileData.languages);
+    languages.forEach(language => {
+        let languageItem = document.createElement("li");
+        languageItem.textContent = language; // Chỉ hiển thị ngôn ngữ, không có nút Remove
+        languageList.appendChild(languageItem);
+    });
+}
+
+
+            // ✅ Cập nhật danh sách Education
+            let educationSection = document.querySelector(".education");
+            educationSection.innerHTML = `<h2><i class="fas fa-graduation-cap"></i>&nbsp; EDUCATION</h2>`;
+            if (profileData.education) {
+                let educations = JSON.parse(profileData.education);
+                educations.forEach(edu => {
+                    educationSection.innerHTML += `
+                        <div class="degree">
+                            <h3>${edu.school}</h3>
+                            <span class="time">${edu.time}</span>
+                        </div>
+                        <p class="degree-info"><strong>Major:</strong> ${edu.major}</p>
+                    `;
+                });
+            }
+    
+            // ✅ Cập nhật Work Experience
+         let experienceSection = document.getElementById("experience-list");
+        experienceSection.innerHTML = ""; // Xóa nội dung cũ
+
+        if (profileData.experience) {
+            let experiences = JSON.parse(profileData.experience);
+            experiences.forEach(exp => {
+                let tasks = exp.description.split("\n").map(line => line.trim()).filter(line => line !== ""); // Xóa dòng trống
+                let taskList = tasks.map((task, index) => {
+                    if (task.endsWith(".")) {
+                        return `<li>${task.slice(0, -1)}</li>`; // Loại bỏ dấu chấm cuối cùng
+                    }
+                    return `<li>${task}</li>`;
+                }).join("");
+
+                experienceSection.innerHTML += `
+                    <div class="job">
+                        <h3>${exp.company}</h3>
+                        <span class="time">${exp.time}</span>
+                    </div>
+                    <p class="job-title">${exp.position}</p>
+                    <ul>
+                        ${taskList}
+                    </ul>
+                `;
+            });
+        }
+    
+            // ✅ Cập nhật danh sách Certificates
+            let certificateSection = document.querySelector(".certificate");
+            certificateSection.innerHTML = `<h2><i class="fas fa-certificate"></i>&nbsp; CERTIFICATE</h2>`;
+            if (profileData.certificates) {
+                let certificates = JSON.parse(profileData.certificates);
+                certificates.forEach(cert => {
+                    certificateSection.innerHTML += `
+                        <div class="degree">
+                            <h3>${cert.name}</h3>
+                            <span class="time">${cert.date}</span>
+                        </div>
+                        <p class="degree-info">${cert.organization}</p>
+                    `;
+                });
+            }
+    
+            // ✅ Cập nhật danh sách Prizes
+            let prizeSection = document.querySelector(".prize");
+            prizeSection.innerHTML = `<h2><i class="fas fa-trophy"></i>&nbsp; PRIZE</h2>`;
+            if (profileData.prizes) {
+                let prizes = JSON.parse(profileData.prizes);
+                prizes.forEach(prize => {
+                    prizeSection.innerHTML += `
+                        <div class="degree">
+                            <h3>${prize.name}</h3>
+                            <span class="time">${prize.date}</span>
+                        </div>
+                        <p class="degree-info">${prize.organization}</p>
+                    `;
+                });
+            }
+    
+            // ✅ Cập nhật danh sách Projects
+            let projectSection = document.querySelector(".project");
+            projectSection.innerHTML = `<h2><i class="fas fa-folder"></i>&nbsp; PROJECT</h2>`;
+            if (profileData.projects) {
+                let projects = JSON.parse(profileData.projects);
+                projects.forEach(project => {
+                    projectSection.innerHTML += `
+                        <div class="degree">
+                            <h3>${project.name}</h3>
+                            <span class="time">${project.startDate} - ${project.endDate}</span>
+                        </div>
+                        <p class="degree-info"><strong>Customer:</strong> ${project.customer}</p>
+                        <p class="degree-info"><strong>Position:</strong> ${project.position}</p>
+                        <p class="degree-info"><strong>Mission:</strong> ${project.mission}</p>
+                        <p class="degree-info"><strong>Technology:</strong> ${project.technology}</p>
+                    `;
+                });
+            }
+        }
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+    const referenceList = document.querySelector(".reference ul");
+    
+    // ✅ Tải dữ liệu đã lưu nếu có
+    let savedReferences = localStorage.getItem("userReferences");
+    if (savedReferences) {
+        referenceList.innerHTML = JSON.parse(savedReferences).map(ref => `<li contenteditable="true">${ref}</li>`).join("");
+    }
+
+    // ✅ Lắng nghe sự kiện chỉnh sửa và lưu vào localStorage
+    referenceList.addEventListener("input", function () {
+        let updatedReferences = Array.from(referenceList.children).map(li => li.textContent);
+        localStorage.setItem("userReferences", JSON.stringify(updatedReferences));
+    });
+});
+document.getElementById("download-btn").addEventListener("click", function () {
+    const menu = document.querySelector(".download-options");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+
+// Ẩn menu khi click ra ngoài
+document.addEventListener("click", function (event) {
+    const menu = document.querySelector(".download-options");
+    const button = document.getElementById("download-btn");
+
+    if (!button.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+    }
+});
+//Download
+// Tải CV dưới dạng PDF
+document.getElementById("download-pdf").addEventListener("click", function () {
+    const cvContent = document.querySelector(".cv-container"); // Chỉ lấy nội dung CV
+    const options = {
+        margin: 10,
+        filename: 'CV_Richard_Sanchez.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(cvContent).set(options).save();
+    document.querySelector(".download-options").style.display = "none";
+});
+
+// Tải CV dưới dạng PNG
+document.getElementById("download-img").addEventListener("click", function () {
+    const cvContent = document.querySelector(".cv-container"); // Chỉ lấy nội dung CV
+
+    html2canvas(cvContent, {
+        scale: 2,
+        backgroundColor: null // Giữ trong suốt nếu cần
+    }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png"); // Chuyển đổi sang PNG
+
+        // Tạo link tải xuống
+        const link = document.createElement("a");
+        link.href = imgData;
+        link.download = "CV_Richard_Sanchez.png"; // Đặt tên file
+        link.click();
+    });
+
+    document.querySelector(".download-options").style.display = "none";
+});
+
+//Share
+document.getElementById("share-btn").addEventListener("click", function () {
+    const menu = document.querySelector(".share-options");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+
+document.getElementById("share-email").addEventListener("click", function () {
+    const subject = "Check out my CV";
+    const body = "Here is my CV. Let me know what you think!";
+    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+document.getElementById("share-link").addEventListener("click", function () {
+    const dummyText = document.createElement("textarea");
+    dummyText.value = window.location.href;
+    document.body.appendChild(dummyText);
+    dummyText.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummyText);
+
+    // Hiển thị toast
+    const toast = document.getElementById("copy-toast");
+    toast.classList.add("show");
+
+    // Ẩn sau 2 giây
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+});
+
+
+document.getElementById("share-facebook").addEventListener("click", function () {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+});
+
+document.getElementById("share-twitter").addEventListener("click", function () {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://twitter.com/intent/tweet?url=${url}`, '_blank');
+});
+
+
+        </script>
+    </body>
+    </html>
+    

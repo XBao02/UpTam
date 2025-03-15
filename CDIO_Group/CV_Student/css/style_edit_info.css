@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    position: relative;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+  h1 {
+    text-align: center;
+    color: #33cc33;
+    margin-bottom: 20px; /* Khoảng cách với các trường nhập liệu */
+    padding-bottom: 10px; /* Khoảng cách với đường kẻ ngang */
+    border-bottom: 2px solid #33cc33; /* Đường kẻ ngang */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  label {
+    font-weight: bold;
+    width: 150px;
+  }
+  
+  input, select, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .gender {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .gender label {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .dob {
+    display: flex;
+    width: 100%;
+  }
+  
+  .dob select {
+    width: 32%;
+    margin-right: 1%;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  button {
+    background-color: #33cc33;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #28a828;
+  }

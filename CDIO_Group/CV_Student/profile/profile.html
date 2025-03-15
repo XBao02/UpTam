@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Career Profile</title>
+    <link rel="stylesheet" href="../css/style_profile.css">
+</head>
+
+<body>
+    <!-- Video background -->
+    <video autoplay muted loop id="background-video">
+        <source src="assets/4k Video - Technology Looped Background - No Copyright Loop Background Video.mp4" type="video/mp4">
+    </video>    
+<!-- Thông báo Save thành công -->
+<div id="save-popup" class="save-popup">
+    <p>Save Successful!</p>
+</div>
+<!-- Thông báo xác nhận Reset -->
+<div id="reset-popup" class="reset-popup">
+    <p>Are you sure you want to reset your profile?</p>
+    <div class="popup-buttons">
+        <button id="confirm-reset" class="confirm-btn">Yes</button>
+        <button id="cancel-reset" class="cancel-btn">No</button>
+    </div>
+</div>
+
+</div>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="cover-image">
+                <input type="file" id="cover-upload" accept="image/*">
+                <img src="images/pngtree-futuristic-3d-rendering-of-an-endless-walkway-in-an-unoccupied-room-picture-image_7235050.jpg"
+                    alt="Cover Image" id="cover-img">
+            </div>
+            <div class="avatar" id="avatar-container">
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                <img src="../assets/images/avatar-trang-4.jpg" alt="Avatar" id="avatar-img">
+            </div>
+            <div class="profile-info">
+                <h2>Your Name</h2>
+                <h3>Job Position</h3>
+                <h4>Introduce yourself</h4>
+            </div>
+            <a href="javascript:void(0);" class="edit-icons" onclick="showEditForm()">
+                <button>Edit Info</button>
+            </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button onclick="resetProfile()">Reset Profile</button>
+            <button onclick="openCVPage()">View CV</button>
+            <button onclick="saveProfile()">Save Profile</button>
+
+        </div>
+
+        <!-- Profile Sections -->
+        <div class="sections">
+            <div class="section-box">
+                <div class="section">
+                    <h5>Education <img src="../assets/images/education.png" alt="Education Icon"></h5>
+                    <button onclick="showEducationForm()">Add Item</button>
+                </div>
+                <div id="education-list">
+                    <!-- Các mục education sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Experience <img src="../assets/images/experiance.png  " alt="Experience Icon"></h5>
+                    <button onclick="showExperienceForm()">Add Item</button>
+                </div>
+                <div id="experience-list">
+                    <!-- Các mục Experience sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Skills <img src="../assets/images/skill.png" alt="Skills Icon"></h5>
+                    <button onclick="showSkillForm()">Add Item</button>
+                </div>
+                <div class="skills">
+                    <ul id="skill-list">
+                        <li contenteditable="true">Project Management</li>
+                        <li contenteditable="true">Public Relations</li>
+                        <li contenteditable="true">Leadership</li>
+                    </ul>
+                </div>
+            </div>
+                <div class="section-box">
+                    <div class="section">
+                        <h5>Languages <img src="../assets/images/1246297.png" alt="Languages Icon"></h5>
+                        <button onclick="showLanguageForm()">Add Item</button>
+                    </div>
+                    <div class="languages">
+                        <ul id="language-list">
+                            <!-- Ngôn ngữ sẽ hiển thị ở đây -->
+                        </ul>
+                    </div>
+                
+                
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Certificate <img src="../assets/images/certificate.png" alt="Certificate Icon"></h5>
+                    <button onclick="showCertificateForm()">Add Item</button>
+                </div>
+                <div id="certificate-list">
+                    <!-- Các mục Certificate sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Prize <img src="../assets/images/prize.webp" alt="Prize Icon"></h5>
+                    <button onclick="showPrizeForm()">Add Item</button>
+                </div>
+                <div id="prize-list">
+                    <!-- Các mục Prize sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Project <img src="../assets/images/project.png" alt="Project Icon"></h5>
+                    <button onclick="showProjectForm()">Add Item</button>
+                </div>
+                <div id="project-list">
+                    <!-- Các mục Project sẽ hiển thị ở đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit form profile -->
+<div id="edit-form" class="form-container" style="display: none;">
+     <!-- Button đóng dấu "x" -->
+     <span class="close-btn">&times;</span>
+    <h1>PERSONAL INFORMATION</h1>
+    <form>
+        <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="job-position">Job Position</label>
+            <input type="text" id="job-position" name="job-position" placeholder="Your job position" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="gender">
+                <label for="male">
+                    <input type="radio" id="male" name="gender" value="Male"> Male
+                </label>
+                <label for="female">
+                    <input type="radio" id="female" name="gender" value="Female"> Female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <div class="dob">
+                <select id="day" name="day" required>
+                    <option value="">Day</option>
+                    <!-- Options for Day -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="10">11</option>
+                    <option value="10">12</option>
+                    <option value="10">13</option>
+                    <option value="10">14</option>
+                    <option value="10">15</option>
+                    <option value="10">16</option>
+                    <option value="10">17</option>
+                    <option value="10">18</option>
+                    <option value="10">19</option>
+                    <option value="10">20</option>
+                    <option value="10">21</option>
+                    <option value="10">22</option>
+                    <option value="10">23</option>
+                    <option value="10">24</option>
+                    <option value="10">25</option>
+                    <option value="10">26</option>
+                    <option value="10">27</option>
+                    <option value="10">28</option>
+                    <option value="10">29</option>
+                    <option value="10">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select id="month" name="month" required>
+                    <option value="">Month</option>
+                    <!-- Options for Month -->
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select id="year" name="year" required>
+                    <option value="">Year</option>
+                    <!-- Options for Year -->
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <!-- Add more years -->
+                </select>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="Current address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Contact email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Add phone number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="github">URL link github</label>
+            <input type="url" id="github" name="github" placeholder="Your github link">
+        </div>
+
+        <div class="form-group">
+            <label for="intro">Introduce Yourself</label>
+            <textarea id="intro" name="intro" placeholder="Add a description of yourself"></textarea>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+<!-- Education Form Popup -->
+<div id="add-education" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeEducationForm()">&times;</span>
+    <h1>EDUCATION</h1>
+    <form>
+    <div class="form-group">
+        <label for="school">School</label>
+        <input type="text" id="school" name="school" placeholder="School" required>
+    </div>
+
+    <div class="form-group">
+        <label for="major">Major</label>
+        <input type="text" id="major" name="major" placeholder="Major" required>
+    </div>
+
+    <div class="form-group">
+        <label>Time</label>
+        <div class="time-fields">
+            <div class="time-field">
+                <label for="begin">Begin</label>
+                <div class="dob">
+                    <select id="begin-month" name="begin-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="begin-year" name="begin-year" required>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="time-field">
+                <label for="end">End</label>
+                <div class="dob">
+                    <select id="end-month" name="end-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="end-year" name="end-year" required>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit">Update</button>
+</form>
+</div>
+</div>
+<!-- Experience -->
+<div id="add-experience" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeExperienceForm()">&times;</span>
+    <h1>EXPERIENCE</h1>
+    <form>
+        <div class="form-group">
+            <label for="Company">Company</label>
+            <input type="text" id="Company" name="Company" placeholder="Enter company name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" placeholder="Your position" required>
+        </div>
+        <div class="form-group">
+            <label for="detailed-description">Detailed description</label>
+            <textarea id="detailed-description" name="detailed-description" placeholder="Describe your experience in detail" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <div class="time-fields">
+                <div class="time-field">
+                    <label for="begin">Begin</label>
+                    <div class="dob">
+                        <select id="exp-begin-month" name="exp-begin-month" required>
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select id="exp-begin-year" name="exp-begin-year" required>
+                            <option value="">Year</option>
+                            <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="time-field">
+                    <label for="end">End</label>
+                    <div class="dob">
+                        <select id="exp-end-month" name="exp-end-month" required>
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                        <select id="exp-end-year" name="exp-end-year" required>
+                            <option value="">Year</option>
+                            <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+</div>
+<!-- Skill -->
+<div id="add-skill" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeSkillForm()">&times;</span>
+    <h1>SKILL</h1>
+    <form>
+        <div class="form-group">
+            <label for="skill-name">Skill name</label>
+            <input type="text" id="skill-name" name="skill-name" placeholder="Enter your skills" required>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+<!-- Languages -->
+<div id="add-language" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeLanguageForm()">&times;</span>
+    <h1>LANGUAGES</h1>
+    <form>
+        <div class="form-group">
+            <label for="language-name">Language</label>
+            <input type="text" id="language-name" name="language-name" placeholder="Enter a language" required>
+        </div>
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+<!-- Certificate -->
+<div id="add-certificate" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeCertificateForm()">&times;</span>
+    <h1>CERTIFICATE</h1>
+    <form>
+            <div class="form-group">
+              <label for="certificate-name">Certificate Name</label>
+              <input type="text" id="certificate-name" placeholder="Certificate">
+            </div>
+          
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" placeholder="Organization">
+            </div>
+          
+            <div class="form-group">
+              <label for="time">Time of verification</label>
+              <div class="time-select">
+                <select>
+                  <option value="">Month</option>
+                                  <option value="1">January</option>
+                                  <option value="2">February</option>
+                                  <option value="3">March</option>
+                                  <option value="4">April</option>
+                                  <option value="5">May</option>
+                                  <option value="6">June</option>
+                                  <option value="7">July</option>
+                                  <option value="8">August</option>
+                                  <option value="9">September</option>
+                                  <option value="10">October</option>
+                                  <option value="11">November</option>
+                                  <option value="12">December</option>
+                </select>
+                <select>
+                  <option value="">Year</option>
+                  <option value="2015">2015</option>
+                  <option value="2016">2016</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                  <option value="2028">2028</option>
+                  <option value="2029">2029</option>
+                </select>
+              </div>
+            </div>
+          
+            <button type="submit" class="update-btn">Update</button>
+          </form>
+            </div>
+        <!-- Prize -->
+<div id="add-prize" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closePrizeForm()">&times;</span>
+    <h1>PRIZE</h1>
+    <form>
+        <div class="form-group">
+            <label for="prize-name">Prize Name</label>
+            <input type="text" id="prize-name" placeholder="Enter prize name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="prize-organization">Organization</label>
+            <input type="text" id="prize-organization" placeholder="Enter organization name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Date Received</label>
+            <div class="dob">
+                <select id="prize-month" required>
+                    <option value="">Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <select id="prize-year" required>
+                    <option value="">Year</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+        <!-- Project -->
+<div id="add-project" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeProjectForm()">&times;</span>
+    <h1>PROJECT</h1>
+    <form>
+        <div class="form-group">
+            <label for="project-name">Project Name</label>
+            <input type="text" id="project-name" placeholder="Enter project name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-customer">Customer</label>
+            <input type="text" id="project-customer" placeholder="Enter customer name">
+        </div>
+
+        <div class="form-group">
+            <label for="project-position">Position</label>
+            <input type="text" id="project-position" placeholder="Enter your position" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-mission">Mission</label>
+            <input type="text" id="project-mission" placeholder="Enter your role in the project" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-technology">Technology</label>
+            <input type="text" id="project-technology" placeholder="Enter the technologies used" required>
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <div class="dob">
+                <div>
+                    <label>Begin</label>
+                    <select id="project-begin-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="project-begin-year" required>
+                        <option value="">Year</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    </select>
+                </div>
+                <div>
+                    <label>End</label>
+                    <select id="project-end-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="project-end-year" required>
+                        <option value="">Year</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+
+
+    <script>
+        // Khi bấm vào avatar hoặc cover, mở hộp thoại chọn file
+        document.getElementById('avatar-img').addEventListener('click', function () {
+            document.getElementById('avatar-upload').click();
+        });
+
+        document.getElementById('cover-img').addEventListener('click', function () {
+            document.getElementById('cover-upload').click();
+        });
+
+        // Lưu avatar vào localStorage khi người dùng chọn ảnh mới
+document.getElementById('avatar-upload').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('avatar-img').src = e.target.result;
+            localStorage.setItem("userAvatar", e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Lưu ảnh bìa vào localStorage khi người dùng chọn ảnh mới
+document.getElementById('cover-upload').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('cover-img').src = e.target.result;
+            localStorage.setItem("userCover", e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+        // Hiển thị form Personal Information
+function showEditForm() {
+    document.getElementById('edit-form').style.display = 'block';
+}
+
+// Đóng form Personal Information
+document.querySelector('#edit-form .close-btn').addEventListener('click', function () {
+    document.getElementById('edit-form').style.display = 'none';
+});
+
+// Hàm đóng form education
+function closeEducationForm() {
+    document.getElementById('add-education').style.display = 'none';
+}
+        // Hiển thị form Education
+function showEducationForm() {
+    document.getElementById('add-education').style.display = 'block';
+}
+
+// Hàm đóng form Experience
+function closeExperienceForm() {
+    document.getElementById('add-experience').style.display = 'none';
+}
+        // Hiển thị form Experience
+function showExperienceForm() {
+    document.getElementById('add-experience').style.display = 'block';
+}
+// Hàm đóng form Skill
+function closeSkillForm() {
+    document.getElementById('add-skill').style.display = 'none';
+}
+        // Hiển thị form Skill
+function showSkillForm() {
+    document.getElementById('add-skill').style.display = 'block';
+}
+// Hiển thị form Languages
+function showLanguageForm() {
+    document.getElementById('add-language').style.display = 'block';
+}
+// Hàm đóng form Languages
+function closeLanguageForm() {
+    document.getElementById('add-language').style.display = 'none';
+}
+
+// Hàm đóng form Certificate
+function closeCertificateForm() {
+    document.getElementById('add-certificate').style.display = 'none';
+}
+        // Hiển thị form Certificate
+function showCertificateForm() {
+    document.getElementById('add-certificate').style.display = 'block';
+}
+
+// Hàm đóng form Prize
+function closePrizeForm() {
+    document.getElementById('add-prize').style.display = 'none';
+}
+        // Hiển thị form Prize
+function showPrizeForm() {
+    document.getElementById('add-prize').style.display = 'block';
+}
+
+// Hàm đóng form Project
+function closeProjectForm() {
+    document.getElementById('add-project').style.display = 'none';
+}
+        // Hiển thị form Project
+function showProjectForm() {
+    document.getElementById('add-project').style.display = 'block';
+}
+//Hiển thị thông tin của Edit info
+document.querySelector("#edit-form form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form
+    let fullName = document.getElementById("full-name").value;
+    let jobPosition = document.getElementById("job-position").value;
+    let intro = document.getElementById("intro").value;
+
+    // Cập nhật vào profile
+    document.querySelector(".profile-info h2").textContent = fullName;
+    document.querySelector(".profile-info h3").textContent = jobPosition;
+    document.querySelector(".profile-info h4").textContent = intro;
+
+    // Ẩn form sau khi cập nhật
+    document.getElementById("edit-form").style.display = "none";
+});
+//Hiển thị thông tin của Education
+document.querySelector("#add-education form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form nhập
+    let school = document.getElementById("school").value;
+    let major = document.getElementById("major").value;
+    let beginMonth = document.getElementById("begin-month").value;
+    let beginYear = document.getElementById("begin-year").value;
+    let endMonth = document.getElementById("end-month").value;
+    let endYear = document.getElementById("end-year").value;
+
+    // Kiểm tra nếu người dùng chưa nhập đủ dữ liệu
+    if (!school || !major || !beginMonth || !beginYear || !endMonth || !endYear) {
+        alert("Vui lòng nhập đầy đủ thông tin.");
+        return;
+    }
+
+    // Tạo một phần tử div mới để hiển thị mục Education
+    let educationItem = document.createElement("div");
+    educationItem.classList.add("education-item");
+    educationItem.innerHTML = `
+        <h4>${school}</h4>
+        <p><strong>Major:</strong> ${major}</p>
+        <p><strong>Time:</strong> ${beginMonth}/${beginYear} - ${endMonth}/${endYear}</p>
+        <button onclick="removeEducation(this)">Remove</button>
+    `;
+
+    // Thêm phần tử mới vào danh sách Education
+    document.getElementById("education-list").appendChild(educationItem);
+
+    // Xóa dữ liệu trong form sau khi thêm
+    document.getElementById("add-education").querySelector("form").reset();
+
+    // Ẩn form Education sau khi thêm
+    closeEducationForm();
+});
+
+// Hàm xóa một mục Education
+function removeEducation(button) {
+    button.parentElement.remove();
+}
+//Hiển thị thông tin của Experience
+document.querySelector("#add-experience form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form nhập
+    let company = document.getElementById("Company").value;
+    let position = document.getElementById("position").value;
+    let detaileddescription = document.getElementById("detailed-description").value;
+    let beginMonth = document.getElementById("exp-begin-month").value;
+    let beginYear = document.getElementById("exp-begin-year").value;
+    let endMonth = document.getElementById("exp-end-month").value;
+    let endYear = document.getElementById("exp-end-year").value;
+
+    // Kiểm tra nếu người dùng chưa nhập đủ dữ liệu
+    if (!company || !position || !beginMonth || !beginYear || !endMonth || !endYear) {
+        alert("Vui lòng nhập đầy đủ thông tin.");
+        return;
+    }
+
+    // Tạo một phần tử div mới để hiển thị mục Experience
+    let experienceItem = document.createElement("div");
+    experienceItem.classList.add("experience-item");
+    experienceItem.innerHTML = `
+        <h4>${company}</h4>
+        <p><strong>Position:</strong> ${position}</p>
+        <p><strong>Time:</strong> ${beginMonth}/${beginYear} - ${endMonth}/${endYear}</p>
+        <p><strong>Detailed Description:</strong> ${detaileddescription}</p>
+        <button onclick="removeExperience(this)">Remove</button>
+    `;
+
+    // Thêm phần tử mới vào danh sách Experience
+    document.getElementById("experience-list").appendChild(experienceItem);
+
+    // Xóa dữ liệu trong form sau khi thêm
+    document.getElementById("add-experience").querySelector("form").reset();
+
+    // Ẩn form Experience sau khi thêm
+    closeExperienceForm();
+});
+
+// Hàm xóa một mục Experience
+function removeExperience(button) {
+    button.parentElement.remove();
+}
+//Hiển thị thông tin của Skill
+document.querySelector("#add-skill form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn reload trang
+
+    let skillName = document.getElementById("skill-name").value.trim();
+
+    if (!skillName) {
+        alert("Vui lòng nhập kỹ năng.");
+        return;
+    }
+
+    // ✅ Tạo thẻ <li> chứa kỹ năng
+    let skillItem = document.createElement("li");
+    skillItem.textContent = skillName;
+
+    // ✅ Thêm nút Remove chỉ trong Profile
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.onclick = function () {
+        skillItem.remove();
+    };
+
+    skillItem.appendChild(removeBtn);
+
+    // ✅ Thêm vào danh sách kỹ năng trong Profile
+    document.getElementById("skill-list").appendChild(skillItem);
+
+    // Xóa dữ liệu nhập sau khi thêm
+    document.getElementById("add-skill").querySelector("form").reset();
+
+    // Ẩn form
+    closeSkillForm();
+});
+// Hàm xóa kỹ năng trong Profile
+function removeSkill(button) {
+    button.parentElement.remove();
+}
+//Hiển thị Languages
+document.querySelector("#add-language form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    let languageName = document.getElementById("language-name").value.trim();
+
+    if (!languageName) {
+        alert("Please enter a language");
+        return;
+    }
+
+    let languageItem = document.createElement("li");
+    languageItem.textContent = `${languageName}`;
+
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", function () {
+        languageItem.remove();
+    });
+
+    languageItem.appendChild(removeBtn);
+    document.getElementById("language-list").appendChild(languageItem);
+
+    document.getElementById("add-language").querySelector("form").reset();
+    closeLanguageForm();
+});
+
+
+// Hàm xóa kỹ năng trong Profile
+function removeLanguages(button) {
+    button.parentElement.remove();
+}
+
+//Hiển thị thông tin của Certificate
+document.querySelector("#add-certificate form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form nhập
+    let certName = document.getElementById("certificate-name").value;
+    let organization = document.getElementById("organization").value;
+    let certMonth = document.querySelector("#add-certificate select:nth-of-type(1)").value;
+    let certYear = document.querySelector("#add-certificate select:nth-of-type(2)").value;
+
+    // Kiểm tra nếu người dùng chưa nhập đủ dữ liệu
+    if (!certName || !organization || !certMonth || !certYear) {
+        alert("Vui lòng nhập đầy đủ thông tin.");
+        return;
+    }
+
+    // Tạo một phần tử div mới để hiển thị mục Certificate
+    let certificateItem = document.createElement("div");
+    certificateItem.classList.add("certificate-item");
+    certificateItem.innerHTML = `
+        <h4>${certName}</h4>
+        <p><strong>Organization:</strong> ${organization}</p>
+        <p><strong>Issued:</strong> ${certMonth}/${certYear}</p>
+        <button onclick="removeCertificate(this)">Remove</button>
+    `;
+
+    // Thêm phần tử mới vào danh sách Certificate
+    document.getElementById("certificate-list").appendChild(certificateItem);
+
+    // Xóa dữ liệu trong form sau khi thêm
+    document.getElementById("add-certificate").querySelector("form").reset();
+
+    // Ẩn form Certificate sau khi thêm
+    closeCertificateForm();
+});
+
+// Hàm xóa một mục Certificate
+function removeCertificate(button) {
+    button.parentElement.remove();
+}
+//Hiển thị thông tin của Prize
+document.querySelector("#add-prize form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form nhập
+    let prizeName = document.getElementById("prize-name").value;
+    let organization = document.getElementById("prize-organization").value;
+    let prizeMonth = document.getElementById("prize-month").value;
+    let prizeYear = document.getElementById("prize-year").value;
+
+    // Kiểm tra nếu người dùng chưa nhập đủ dữ liệu
+    if (!prizeName || !organization || !prizeMonth || !prizeYear) {
+        alert("Vui lòng nhập đầy đủ thông tin.");
+        return;
+    }
+
+    // Tạo một phần tử div mới để hiển thị mục Prize
+    let prizeItem = document.createElement("div");
+    prizeItem.classList.add("prize-item");
+    prizeItem.innerHTML = `
+        <h4>${prizeName}</h4>
+        <p><strong>Organization:</strong> ${organization}</p>
+        <p><strong>Date Received:</strong> ${prizeMonth}/${prizeYear}</p>
+        <button onclick="removePrize(this)">Remove</button>
+    `;
+
+    // Thêm phần tử mới vào danh sách Prize
+    document.getElementById("prize-list").appendChild(prizeItem);
+
+    // Xóa dữ liệu trong form sau khi thêm
+    document.getElementById("add-prize").querySelector("form").reset();
+
+    // Ẩn form Prize sau khi thêm
+    closePrizeForm();
+});
+
+// Hàm xóa một mục Prize
+function removePrize(button) {
+    button.parentElement.remove();
+}
+//Hiển thị thông tin của Project
+document.querySelector("#add-project form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn reload trang
+
+    // Lấy giá trị từ form nhập
+    let projectName = document.getElementById("project-name").value;
+    let customer = document.getElementById("project-customer").value;
+    let position = document.getElementById("project-position").value;
+    let mission = document.getElementById("project-mission").value;
+    let technology = document.getElementById("project-technology").value;
+    let beginMonth = document.getElementById("project-begin-month").value;
+    let beginYear = document.getElementById("project-begin-year").value;
+    let endMonth = document.getElementById("project-end-month").value;
+    let endYear = document.getElementById("project-end-year").value;
+
+    // Kiểm tra nếu người dùng chưa nhập đủ dữ liệu
+    if (!projectName || !position || !mission || !technology || !beginMonth || !beginYear || !endMonth || !endYear) {
+        alert("Vui lòng nhập đầy đủ thông tin.");
+        return;
+    }
+
+    // Tạo một phần tử div mới để hiển thị mục Project
+    let projectItem = document.createElement("div");
+    projectItem.classList.add("project-item");
+    projectItem.innerHTML = `
+        <h4>${projectName}</h4>
+        <p><strong>Customer:</strong> ${customer}</p>
+        <p><strong>Position:</strong> ${position}</p>
+        <p><strong>Mission:</strong> ${mission}</p>
+        <p><strong>Technology:</strong> ${technology}</p>
+        <p><strong>Time:</strong> ${beginMonth}/${beginYear} - ${endMonth}/${endYear}</p>
+        <button onclick="removeProject(this)">Remove</button>
+    `;
+
+    // Thêm phần tử mới vào danh sách Project
+    document.getElementById("project-list").appendChild(projectItem);
+
+    // Xóa dữ liệu trong form sau khi thêm
+    document.getElementById("add-project").querySelector("form").reset();
+
+    // Ẩn form Project sau khi thêm
+    closeProjectForm();
+});
+
+// Hàm xóa một mục Project
+function removeProject(button) {
+    button.parentElement.remove();
+}
+//Lưu dữ liệu 
+function saveProfile() {
+
+    let profileData = {
+        fullName: document.querySelector(".profile-info h2").textContent,
+        jobPosition: document.querySelector(".profile-info h3").textContent,
+        intro: document.querySelector(".profile-info h4").textContent,
+        avatar: document.getElementById("avatar-img").src,
+        cover: document.getElementById("cover-img").src,
+        address: document.getElementById("address").value || "Not Provided",
+        email: document.getElementById("email").value || "Not Provided",
+        phone: document.getElementById("phone").value || "Not Provided",
+        github: document.getElementById("github").value || "Not Provided",
+
+        // ✅ Lưu Education theo JSON
+        education: JSON.stringify([...document.querySelectorAll("#education-list .education-item")].map(item => ({
+            school: item.querySelector("h4").textContent,
+            major: item.querySelector("p:nth-of-type(1)").textContent.replace("Major: ", ""),
+            time: item.querySelector("p:nth-of-type(2)").textContent.replace("Time: ", "")
+        }))),
+
+        // ✅ Lưu Work Experience theo JSON
+        experience: JSON.stringify([...document.querySelectorAll("#experience-list .experience-item")].map(item => ({
+            company: item.querySelector("h4").textContent,
+            position: item.querySelector("p:nth-of-type(1)").textContent.replace("Position: ", ""),
+            time: item.querySelector("p:nth-of-type(2)").textContent.replace("Time: ", ""),
+            description: item.querySelector("p:nth-of-type(3)").textContent.replace("Detailed Description: ", "")
+        }))),
+
+         // ✅ Lưu Skills 
+         skills: JSON.stringify([...document.querySelectorAll("#skill-list li")].map(li => li.textContent.replace("Remove", "").trim())),
+
+         // ✅ Lưu languages 
+         languages: JSON.stringify([...document.querySelectorAll("#language-list li")].map(li => li.textContent.replace("Remove", "").trim())),
+
+
+        // ✅ Lưu Certificates theo JSON
+        certificates: JSON.stringify([...document.querySelectorAll("#certificate-list .certificate-item")].map(item => ({
+            name: item.querySelector("h4").textContent,
+            organization: item.querySelector("p:nth-of-type(1)").textContent.replace("Organization: ", ""),
+            date: item.querySelector("p:nth-of-type(2)").textContent.replace("Issued: ", "")
+        }))),
+
+        // ✅ Lưu Prizes theo JSON
+        prizes: JSON.stringify([...document.querySelectorAll("#prize-list .prize-item")].map(item => ({
+            name: item.querySelector("h4").textContent,
+            organization: item.querySelector("p:nth-of-type(1)").textContent.replace("Organization: ", ""),
+            date: item.querySelector("p:nth-of-type(2)").textContent.replace("Date Received: ", "")
+        }))),
+
+        // ✅ Lưu Projects theo JSON
+        projects: JSON.stringify([...document.querySelectorAll("#project-list .project-item")].map(item => ({
+            name: item.querySelector("h4").textContent,
+            customer: item.querySelector("p:nth-of-type(1)").textContent.replace("Customer: ", ""),
+            position: item.querySelector("p:nth-of-type(2)").textContent.replace("Position: ", ""),
+            mission: item.querySelector("p:nth-of-type(3)").textContent.replace("Mission: ", ""),
+            technology: item.querySelector("p:nth-of-type(4)").textContent.replace("Technology: ", ""),
+            startDate: item.querySelector("p:nth-of-type(5)").textContent.split(" - ")[0],
+            endDate: item.querySelector("p:nth-of-type(5)").textContent.split(" - ")[1]
+        })))
+    };
+
+    // ✅ Lưu vào localStorage
+    localStorage.setItem("userProfile", JSON.stringify(profileData));
+
+    // ✅ Hiển thị popup với hiệu ứng fadeIn
+    let savePopup = document.getElementById("save-popup");
+    savePopup.style.display = "block";
+    savePopup.style.backgroundColor = "#004080"; // Màu xanh đậm
+    savePopup.style.animation = "fadeIn 0.2s ease-in-out"; // Nhanh hơn
+
+    // ✅ Ẩn popup sau 1.5 giây với hiệu ứng fadeOut
+    setTimeout(() => {
+        savePopup.style.animation = "fadeOut 0.3s ease-in-out";
+        setTimeout(() => {
+            savePopup.style.display = "none";
+        }, 300);
+    }, 1500);
+}
+
+
+
+// Khi bấm "View CV", mở trang CV
+function openCVPage() {
+    window.open("cv.html", "_blank");
+}
+
+// Tải dữ liệu khi trang được load
+window.onload = function () {
+    let savedProfile = localStorage.getItem("userProfile");
+
+    if (savedProfile) {
+        let profileData = JSON.parse(savedProfile);
+ 
+        document.querySelector(".profile-info h2").textContent = profileData.fullName || "Your Name";
+        document.querySelector(".profile-info h3").textContent = profileData.jobPosition || "Job Position";
+        document.querySelector(".profile-info h4").textContent = profileData.intro || "Introduce yourself";
+
+        // ✅ Chuyển JSON thành HTML đúng
+        document.getElementById("education-list").innerHTML = JSON.parse(profileData.education).map(edu => `
+            <div class="education-item">
+                <h4>${edu.school}</h4>
+                <p>Major: ${edu.major}</p>
+                <p>Time: ${edu.time}</p>
+            </div>
+        `).join("");
+
+        document.getElementById("experience-list").innerHTML = JSON.parse(profileData.experience).map(exp => `
+            <div class="experience-item">
+                <h4>${exp.company}</h4>
+                <p>Position: ${exp.position}</p>
+                <p>Time: ${exp.time}</p>
+                <p>Detailed Description: ${exp.description}</p>
+            </div>
+        `).join("");
+
+        let skillList = document.getElementById("skill-list");
+skillList.innerHTML = ""; // Xóa nội dung cũ
+
+if (profileData.skills) {
+    let skills = JSON.parse(profileData.skills);
+    skills.forEach(skill => {
+        let skillItem = document.createElement("li");
+        skillItem.textContent = skill; // Chỉ thêm nội dung kỹ năng
+
+        // ✅ Chỉ thêm nút "Remove" khi ở trang Profile
+        if (document.getElementById("add-skill")) {
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.onclick = function () {
+                skillItem.remove();
+            };
+            skillItem.appendChild(removeBtn);
+        }
+
+        skillList.appendChild(skillItem);
+    });
+}
+if (profileData.languages) {
+    let languageList = document.getElementById("language-list");
+    languageList.innerHTML = "";
+
+    let languages = JSON.parse(profileData.languages);
+    languages.forEach(language => {
+        let languageItem = document.createElement("li");
+        languageItem.textContent = language;
+
+        let removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.onclick = function () {
+            languageItem.remove();
+        };
+
+        languageItem.appendChild(removeBtn);
+        languageList.appendChild(languageItem);
+    });
+}
+
+
+        document.getElementById("certificate-list").innerHTML = JSON.parse(profileData.certificates).map(cert => `
+            <div class="certificate-item">
+                <h4>${cert.name}</h4>
+                <p>Organization: ${cert.organization}</p>
+                <p>Issued: ${cert.date}</p>
+            </div>
+        `).join("");
+
+        document.getElementById("prize-list").innerHTML = JSON.parse(profileData.prizes).map(prize => `
+            <div class="prize-item">
+                <h4>${prize.name}</h4>
+                <p>Organization: ${prize.organization}</p>
+                <p>Date Received: ${prize.date}</p>
+            </div>
+        `).join("");
+
+        document.getElementById("project-list").innerHTML = JSON.parse(profileData.projects).map(project => `
+            <div class="project-item">
+                <h4>${project.name}</h4>
+                <p>Customer: ${project.customer}</p>
+                <p>Position: ${project.position}</p>
+                <p>Mission: ${project.mission}</p>
+                <p>Technology: ${project.technology}</p>
+                <p>${project.startDate} - ${project.endDate}</p>
+            </div>
+        `).join("");
+    }
+
+    let savedAvatar = localStorage.getItem("userAvatar");
+    let savedCover = localStorage.getItem("userCover");
+
+    if (savedAvatar) {
+        document.getElementById('avatar-img').src = savedAvatar;
+    }
+
+    if (savedCover) {
+        document.getElementById('cover-img').src = savedCover;
+    }
+};
+
+//Reset Profile
+function resetProfile() {
+    // Hiển thị popup xác nhận
+    let resetPopup = document.getElementById("reset-popup");
+    resetPopup.style.display = "block";
+
+    // Xử lý khi bấm "Yes"
+    document.getElementById("confirm-reset").onclick = function () {
+        // Xóa toàn bộ dữ liệu trong localStorage
+        localStorage.removeItem("userProfile");
+        localStorage.removeItem("userAvatar");
+        localStorage.removeItem("userCover");
+
+        // Reset các trường thông tin về mặc định
+        document.querySelector(".profile-info h2").textContent = "Your Name";
+        document.querySelector(".profile-info h3").textContent = "Job Position";
+        document.querySelector(".profile-info h4").textContent = "Introduce yourself";
+        
+        // Xóa danh sách các mục đã nhập
+        document.getElementById("education-list").innerHTML = "";
+        document.getElementById("experience-list").innerHTML = "";
+        document.getElementById("skill-list").innerHTML = "";
+        document.getElementById("language-list").innerHTML = "";
+        document.getElementById("certificate-list").innerHTML = "";
+        document.getElementById("prize-list").innerHTML = "";
+        document.getElementById("project-list").innerHTML = "";
+
+        // Reset ảnh avatar và ảnh bìa về mặc định
+        document.getElementById("avatar-img").src = "images/avatar-trang-4.jpg";
+        document.getElementById("cover-img").src = "images/pngtree-futuristic-3d-rendering-of-an-endless-walkway-in-an-unoccupied-room-picture-image_7235050.jpg";
+
+        // Ẩn popup sau khi xác nhận
+        resetPopup.style.display = "none";
+        
+    };
+
+    // Xử lý khi bấm "No"
+    document.getElementById("cancel-reset").onclick = function () {
+        resetPopup.style.display = "none";
+    };
+}
+
+//Open CV
+function openCVPage() {
+        saveProfile();
+        window.open("cv.html", "_blank");
+    }
+    </script>
+</body>
+
+</html>

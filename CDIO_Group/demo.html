@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Career Profile</title>
+    <link rel="stylesheet" href="../css/style_profile.css">
+</head>
+
+<body>
+    <!-- Video background -->
+    <video autoplay muted loop id="background-video">
+        <source src="assets/4k Video - Technology Looped Background - No Copyright Loop Background Video.mp4"
+            type="video/mp4">
+    </video>
+    <!-- Thông báo Save thành công -->
+    <div id="save-popup" class="save-popup">
+        <p>Save Successful!</p>
+    </div>
+    <!-- Thông báo xác nhận Reset -->
+    <div id="reset-popup" class="reset-popup">
+        <p>Are you sure you want to reset your profile?</p>
+        <div class="popup-buttons">
+            <button id="confirm-reset" class="confirm-btn">Yes</button>
+            <button id="cancel-reset" class="cancel-btn">No</button>
+        </div>
+    </div>
+
+    </div>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="cover-image">
+                <input type="file" id="cover-upload" accept="image/*">
+                <img src="images/pngtree-futuristic-3d-rendering-of-an-endless-walkway-in-an-unoccupied-room-picture-image_7235050.jpg"
+                    alt="Cover Image" id="cover-img">
+            </div>
+            <div class="avatar" id="avatar-container">
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                <img src="../assets/images/avatar-trang-4.jpg" alt="Avatar" id="avatar-img">
+            </div>
+            <div class="profile-info">
+                <h2>Your Name</h2>
+                <h3>Job Position</h3>
+                <h4>Introduce yourself</h4>
+            </div>
+            <a href="javascript:void(0);" class="edit-icons" onclick="showEditForm()">
+                <button>Edit Info</button>
+            </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button onclick="resetProfile()">Reset Profile</button>
+            <button onclick="openCVPage()">View CV</button>
+            <button onclick="saveProfile()">Save Profile</button>
+
+        </div>
+
+        <!-- Profile Sections -->
+        <div class="sections">
+            <div class="section-box">
+                <div class="section">
+                    <h5>Education <img src="../assets/images/education.png" alt="Education Icon"></h5>
+                    <button onclick="showEducationForm()">Add Item</button>
+                </div>
+                <div id="education-list">
+                    <!-- Các mục education sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Experience <img src="../assets/images/experiance.png  " alt="Experience Icon"></h5>
+                    <button onclick="showExperienceForm()">Add Item</button>
+                </div>
+                <div id="experience-list">
+                    <!-- Các mục Experience sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Skills <img src="../assets/images/skill.png" alt="Skills Icon"></h5>
+                    <button onclick="showSkillForm()">Add Item</button>
+                </div>
+                <div class="skills">
+                    <ul id="skill-list">
+                        <li contenteditable="true">Project Management</li>
+                        <li contenteditable="true">Public Relations</li>
+                        <li contenteditable="true">Leadership</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Languages <img src="../assets/images/1246297.png" alt="Languages Icon"></h5>
+                    <button onclick="showLanguageForm()">Add Item</button>
+                </div>
+                <div class="languages">
+                    <ul id="language-list">
+                        <!-- Ngôn ngữ sẽ hiển thị ở đây -->
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Certificate <img src="../assets/images/certificate.png" alt="Certificate Icon"></h5>
+                    <button onclick="showCertificateForm()">Add Item</button>
+                </div>
+                <div id="certificate-list">
+                    <!-- Các mục Certificate sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Prize <img src="../assets/images/prize.webp" alt="Prize Icon"></h5>
+                    <button onclick="showPrizeForm()">Add Item</button>
+                </div>
+                <div id="prize-list">
+                    <!-- Các mục Prize sẽ hiển thị ở đây -->
+                </div>
+            </div>
+            <div class="section-box">
+                <div class="section">
+                    <h5>Project <img src="../assets/images/project.png" alt="Project Icon"></h5>
+                    <button onclick="showProjectForm()">Add Item</button>
+                </div>
+                <div id="project-list">
+                    <!-- Các mục Project sẽ hiển thị ở đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit form profile -->
+    <div id="edit-form" class="form-container" style="display: none;">
+        <!-- Button đóng dấu "x" -->
+        <span class="close-btn">&times;</span>
+        <h1>PERSONAL INFORMATION</h1>
+        <form>
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job-position">Job Position</label>
+                <input type="text" id="job-position" name="job-position" placeholder="Your job position" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender">
+                    <label for="male">
+                        <input type="radio" id="male" name="gender" value="Male"> Male
+                    </label>
+                    <label for="female">
+                        <input type="radio" id="female" name="gender" value="Female"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <div class="dob">
+                    <select id="day" name="day" required>
+                        <option value="">Day</option>
+                        <!-- Options for Day -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="10">11</option>
+                        <option value="10">12</option>
+                        <option value="10">13</option>
+                        <option value="10">14</option>
+                        <option value="10">15</option>
+                        <option value="10">16</option>
+                        <option value="10">17</option>
+                        <option value="10">18</option>
+                        <option value="10">19</option>
+                        <option value="10">20</option>
+                        <option value="10">21</option>
+                        <option value="10">22</option>
+                        <option value="10">23</option>
+                        <option value="10">24</option>
+                        <option value="10">25</option>
+                        <option value="10">26</option>
+                        <option value="10">27</option>
+                        <option value="10">28</option>
+                        <option value="10">29</option>
+                        <option value="10">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <select id="month" name="month" required>
+                        <option value="">Month</option>
+                        <!-- Options for Month -->
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="year" name="year" required>
+                        <option value="">Year</option>
+                        <!-- Options for Year -->
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <!-- Add more years -->
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Current address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Contact email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Add phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="github">URL link github</label>
+                <input type="url" id="github" name="github" placeholder="Your github link">
+            </div>
+
+            <div class="form-group">
+                <label for="intro">Introduce Yourself</label>
+                <textarea id="intro" name="intro" placeholder="Add a description of yourself"></textarea>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    <!-- Education Form Popup -->
+    <div id="add-education" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closeEducationForm()">&times;</span>
+        <h1>EDUCATION</h1>
+        <form>
+            <div class="form-group">
+                <label for="school">School</label>
+                <input type="text" id="school" name="school" placeholder="School" required>
+            </div>
+
+            <div class="form-group">
+                <label for="major">Major</label>
+                <input type="text" id="major" name="major" placeholder="Major" required>
+            </div>
+
+            <div class="form-group">
+                <label>Time</label>
+                <div class="time-fields">
+                    <div class="time-field">
+                        <label for="begin">Begin</label>
+                        <div class="dob">
+                            <select id="begin-month" name="begin-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="begin-year" name="begin-year" required>
+                                <option value="">Year</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="time-field">
+                        <label for="end">End</label>
+                        <div class="dob">
+                            <select id="end-month" name="end-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="end-year" name="end-year" required>
+                                <option value="">Year</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    </div>
+    <!-- Experience -->
+    <div id="add-experience" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closeExperienceForm()">&times;</span>
+        <h1>EXPERIENCE</h1>
+        <form>
+            <div class="form-group">
+                <label for="Company">Company</label>
+                <input type="text" id="Company" name="Company" placeholder="Enter company name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" id="position" name="position" placeholder="Your position" required>
+            </div>
+            <div class="form-group">
+                <label for="detailed-description">Detailed description</label>
+                <textarea id="detailed-description" name="detailed-description"
+                    placeholder="Describe your experience in detail" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Time</label>
+                <div class="time-fields">
+                    <div class="time-field">
+                        <label for="begin">Begin</label>
+                        <div class="dob">
+                            <select id="exp-begin-month" name="exp-begin-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="exp-begin-year" name="exp-begin-year" required>
+                                <option value="">Year</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="time-field">
+                        <label for="end">End</label>
+                        <div class="dob">
+                            <select id="exp-end-month" name="exp-end-month" required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="exp-end-year" name="exp-end-year" required>
+                                <option value="">Year</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    </div>
+    <!-- Skill -->
+    <div id="add-skill" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closeSkillForm()">&times;</span>
+        <h1>SKILL</h1>
+        <form>
+            <div class="form-group">
+                <label for="skill-name">Skill name</label>
+                <input type="text" id="skill-name" name="skill-name" placeholder="Enter your skills" required>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    <!-- Languages -->
+    <div id="add-language" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closeLanguageForm()">&times;</span>
+        <h1>LANGUAGES</h1>
+        <form>
+            <div class="form-group">
+                <label for="language-name">Language</label>
+                <input type="text" id="language-name" name="language-name" placeholder="Enter a language" required>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <!-- Certificate -->
+    <div id="add-certificate" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closeCertificateForm()">&times;</span>
+        <h1>CERTIFICATE</h1>
+        <form>
+            <div class="form-group">
+                <label for="certificate-name">Certificate Name</label>
+                <input type="text" id="certificate-name" placeholder="Certificate">
+            </div>
+
+            <div class="form-group">
+                <label for="organization">Organization</label>
+                <input type="text" id="organization" placeholder="Organization">
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time of verification</label>
+                <div class="time-select">
+                    <select>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="update-btn">Update</button>
+        </form>
+    </div>
+    <!-- Prize -->
+    <div id="add-prize" class="form-container" style="display:none;">
+        <span class="close-btn" onclick="closePrizeForm()">&times;</span>
+        <h1>PRIZE</h1>
+        <form>
+            <div class="form-group">
+                <label for="prize-name">Prize Name</label>
+                <input type="text" id="prize-name" placeholder="Enter prize name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prize-organization">Organization</label>
+                <input type="text" id="prize-organization" placeholder="Enter organization name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date Received</label>
+                <div class="dob">
+                    <select id="prize-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="prize-year" required>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+        <!-- Bắt đầu từ dòng 410 -->
+</div>
+<!-- Project -->
+<div id="add-project" class="form-container" style="display:none;">
+    <span class="close-btn" onclick="closeProjectForm()">&times;</span>
+    <h1>PROJECT</h1>
+    <form>
+        <div class="form-group">
+            <label for="project-name">Project Name</label>
+            <input type="text" id="project-name" placeholder="Enter project name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-customer">Customer</label>
+            <input type="text" id="project-customer" placeholder="Enter customer name">
+        </div>
+
+        <div class="form-group">
+            <label for="project-position">Position</label>
+            <input type="text" id="project-position" placeholder="Enter your position" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-mission">Mission</label>
+            <input type="text" id="project-mission" placeholder="Enter your role in the project" required>
+        </div>
+
+        <div class="form-group">
+            <label for="project-technology">Technology</label>
+            <input type="text" id="project-technology" placeholder="Enter the technologies used" required>
+        </div>
+
+        <div class="form-group">
+            <label>Time</label>
+            <div class="dob">
+                <div>
+                    <label>Begin</label>
+                    <select id="project-begin-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="project-begin-year" required>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+                <div>
+                    <label>End</label>
+                    <select id="project-end-month" required>
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="project-end-year" required>
+                        <option value="">Year</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+
+
+    
+</body>
+
+</html>

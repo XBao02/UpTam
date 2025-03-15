@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: url("images/gd_loai_ng.png") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.225);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  max-width: 90%;
+  height: auto;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px rgba(195, 18, 18, 0.2);
+}
+
+.right {
+  flex: 2;
+  padding: 40px;
+  background: #e6f7ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  color: #cc0000;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  font-size: 24px;
+  color: #0077cc;
+  margin: 0;
+}
+.header img {
+  width: 60px;
+  height: auto;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input-container label {
+  font-weight: normal;
+  font-size: 14px;
+}
+.input-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.checkbox input {
+  margin-right: 10px;
+}
+.register-btn {
+  width: 100%;
+  padding: 10px;
+  background: #5aaf76;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+.register-btn:hover {
+  background: #4d9964;
+}
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.social-login img {
+  width: 30px;
+  cursor: pointer;
+}
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-link a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}

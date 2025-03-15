@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information Form</title>
+    <link rel="stylesheet" href="../css/style_edit_info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+    <div id ="edit" class="form-container">
+        <i class="fas fa-times close-btn"></i>
+        <h1>Personal Information</h1>
+        <form>
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job-position">Job Position</label>
+                <input type="text" id="job-position" name="job-position" placeholder="Your job position" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender">
+                    <label for="male">
+                        <input type="radio" id="male" name="gender" value="Male"> Male
+                    </label>
+                    <label for="female">
+                        <input type="radio" id="female" name="gender" value="Female"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <div class="dob">
+                    <select id="day" name="day" required>
+                        <option value="">Day</option>
+                        <!-- Options for Day -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="10">11</option>
+                        <option value="10">12</option>
+                        <option value="10">13</option>
+                        <option value="10">14</option>
+                        <option value="10">15</option>
+                        <option value="10">16</option>
+                        <option value="10">17</option>
+                        <option value="10">18</option>
+                        <option value="10">19</option>
+                        <option value="10">20</option>
+                        <option value="10">21</option>
+                        <option value="10">22</option>
+                        <option value="10">23</option>
+                        <option value="10">24</option>
+                        <option value="10">25</option>
+                        <option value="10">26</option>
+                        <option value="10">27</option>
+                        <option value="10">28</option>
+                        <option value="10">29</option>
+                        <option value="10">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <select id="month" name="month" required>
+                        <option value="">Month</option>
+                        <!-- Options for Month -->
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <select id="year" name="year" required>
+                        <option value="">Year</option>
+                        <!-- Options for Year -->
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+                        <option value="2005">2005</option>
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <!-- Add more years -->
+                    </select>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Current address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Contact email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Add phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="github">URL link github</label>
+                <input type="url" id="github" name="github" placeholder="Your github link">
+            </div>
+
+            <div class="form-group">
+                <label for="intro">Introduce Yourself</label>
+                <textarea id="intro" name="intro" placeholder="Add a description of yourself"></textarea>
+            </div>
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    <script>
+        // Thêm mã JavaScript để đóng form khi nhấn vào biểu tượng dấu nhân
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.form-container').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

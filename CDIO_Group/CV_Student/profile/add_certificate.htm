@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Form</title>
+  <link rel="stylesheet" href="../css/style_certificate.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-header">
+      <h2>CERTIFICATE</h2>
+      <span class="close-btn">&times;</span>
+    </div>
+   <form>
+  <div class="form-group">
+    <label for="certificate-name">Certificate Name</label>
+    <input type="text" id="certificate-name" placeholder="Certificate">
+  </div>
+
+  <div class="form-group">
+    <label for="organization">Organization</label>
+    <input type="text" id="organization" placeholder="Organization">
+  </div>
+
+  <div class="form-group">
+    <label for="time">Time of verification</label>
+    <div class="time-select">
+      <select>
+        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+      </select>
+      <select>
+        <option value="">Year</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                        <option value="2003">2003</option>
+                        <option value="2004">2004</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="update-btn">Update</button>
+</form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 70px; /* Dùng để tránh nội dung bị che bởi header cố định */
+}
+
+/* Header */
+header {
+    position: fixed; /* Cố định vị trí ở trên cùng */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px 40px; /* Tăng padding để header cao hơn */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Đảm bảo header luôn ở trên cùng */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav .logo img {
+    height: 50px; /* Tăng kích thước logo */
+}
+
+nav .logo span {
+    font-size: 24px; /* Làm cho văn bản logo lớn hơn */
+    font-weight: bold;
+    color: #1e3d58;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #1e3d58;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+.search-bar button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+}

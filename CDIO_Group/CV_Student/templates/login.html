@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='login.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left"></div>
+      <div class="right">
+        <button class="close-btn" onclick="closeForm()">✖</button>
+        <h2>Chào mừng bạn đã quay trở lại</h2>
+        <img src="static\images\logo.png" alt="Logo" />
+        <form method="POST" action="{{ url_for('login') }}">
+          <div class="input-container">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="input-box"
+              placeholder="Nhập email của bạn"
+              required
+            />
+            <label for="password">Mật khẩu</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="input-box"
+              placeholder="Nhập mật khẩu"
+              required
+            />
+          </div>
+          <button type="submit" class="login-btn">Đăng Nhập</button>
+          <div class="forgot-password">
+            <a href="#">Quên mật khẩu?</a>
+          </div>
+        </form>
+
+        {% if message %}
+        <p style="color: red; text-align: center">{{ message }}</p>
+        {% endif %}
+
+        <p style="text-align: center; margin: 10px 0">OR</p>
+        <div class="social-login">
+          <img src="static\images\logo_chrome.png" alt="Logo" />
+          <img src="static\images\logo_facebook.png" alt="Logo" />
+          <img src="static\images\logo_linkedin.jpg" alt="Logo" />
+        </div>
+        <div class="register-link">
+          Bạn chưa có tài khoản?
+          <a href="{{ url_for('register') }}">Đăng ký ngay</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function closeForm() {
+      window.location.href = "/";
+    }
+  </script>
+</html>

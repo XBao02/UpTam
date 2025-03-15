@@ -1,0 +1,486 @@
+/* Tổng thể CV */
+.cv-container {
+    position: relative; /* Để ảnh đại diện không bị che */
+    max-width: 1000px;
+    margin: 60px auto 40px; /* Tăng margin-top để kéo xuống tránh che ảnh */
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Đảm bảo container không che ảnh đại diện */
+    
+}
+body {
+    background: url('https://static.vecteezy.com/system/resources/previews/002/092/943/original/abstract-mixed-pastel-colors-background-free-vector.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+  
+/* Ảnh bìa */
+.profile-cover {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #2C3E50;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.profile-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ảnh đại diện nổi hoàn toàn trên ảnh bìa */
+.profile-pic {
+    position: absolute;
+    left: 80px; /* Đưa ảnh qua phần sidebar */
+    top: 120px; /* Đặt ở vị trí tràn xuống sidebar */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+    background-color: white;
+    z-index: 1000; /* Đảm bảo ảnh luôn nổi trên sidebar */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tiêu đề trong ảnh bìa */
+.header-text {
+    position: absolute;
+    top: 50%; /* Căn giữa theo chiều dọc */
+    left: 80%;
+    transform: translate(-50%, -50%); /* Căn giữa chính xác */
+    color: white;
+    text-align: left; /* Chữ căn về bên trái */
+    width: 80%; /* Giới hạn chiều rộng để căn chỉnh */
+    display: flex;
+    flex-direction: column; /* Sắp xếp chữ theo chiều dọc */
+}
+
+
+/* Bố cục chính */
+.cv-body {
+    display: flex;
+    margin-top: 0px; /* Kéo phần nội dung xuống để tránh đè lên ảnh đại diện */
+}
+
+/* Sidebar */
+.sidebar {
+    position: relative; /* Giữ sidebar không đè lên avatar */
+    background-color: hsl(0, 36%, 95%);
+    width: 30%;
+    padding: 120px 20px 100px 40px; /* Tăng padding trên để tránh ảnh đại diện */
+    text-align: left;
+    z-index: 1;
+}
+
+h3 {
+    color: #2C3E50;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    width: 70%;
+}
+
+h2 {
+    color: #2C3E50;
+    border-bottom: 2px solid #2C3E50;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-text h5 {
+    font-size: 20px; /* Tăng kích thước "MARKETING MANAGER" */
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+.icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.job-title {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cv-body {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .main-content {
+        width: 100%;
+    }
+    .profile-pic {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Định dạng tiêu đề trong sidebar (CONTACT, SKILLS, LANGUAGES, REFERENCE) */
+.sidebar h3 {
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #2C3E50; /* Thêm đường kẻ ngang */
+}
+/* Định dạng job container để căn thời gian sang phải */
+.job {
+    display: flex;
+    justify-content: space-between; /* Căn trái phải giữa tiêu đề công ty và thời gian */
+    align-items: baseline; /* Giữ tiêu đề và thời gian cùng hàng */
+    flex-wrap: wrap; /* Đảm bảo xuống dòng khi cần */
+}
+
+/* Định dạng phần thời gian */
+.job .time {
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap; /* Ngăn thời gian bị xuống dòng */
+}
+
+/* Định dạng chức danh nằm dưới tiêu đề */
+.job-title {
+    width: 100%; /* Đảm bảo nó chiếm toàn bộ chiều rộng */
+    font-style: italic;
+    color: #666;
+}
+/* Căn bằng cấp và thời gian trên cùng một hàng */
+.degree {
+    display: flex;
+    justify-content: space-between; /* Căn bằng cấp bên trái, thời gian bên phải */
+    align-items: center; /* Giữ cùng hàng */
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+    font-weight: bold;
+}
+
+/* Định dạng phần thời gian */
+.degree .time {
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap; /* Ngăn thời gian bị xuống dòng */
+}
+
+/* Định dạng thông tin trường học và GPA để xuống dòng */
+.degree-info {
+    width: 100%; /* Đảm bảo xuống dòng */
+    font-size: 14px;
+    color: #555;
+    margin-top: 3px; /* Khoảng cách giữa tiêu đề và nội dung dưới */
+}
+/*icon contact*/
+.contact-info p {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.contact-info i {
+    font-size: 16px;
+    color: #2C3E50;
+    margin-right: 10px;
+}
+/*Skill*/
+.skills {
+    margin-top: 20px;
+}
+
+.skills h3 {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #2C3E50; /* Gạch ngang phân cách */
+    padding-bottom: 5px;
+    color: #2C3E50;
+}
+
+.skills ul {
+    list-style-type: disc; /* Dấu chấm "•" */
+    padding-left: 20px;
+}
+
+.skills li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#cv-skill-list {
+    list-style-type: disc; /* Hiển thị dấu chấm */
+    padding-left: 20px;
+}
+
+#cv-skill-list li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Định dạng vùng chứa nút Download */
+.download-container {
+    position: relative;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Căn chỉnh nút Download */
+#download-btn {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+    width: 200px;
+    justify-content: center;
+}
+
+#download-btn:hover {
+    background-color: #002b57;
+}
+
+/* Định dạng menu thả xuống */
+.download-options {
+    position: absolute;
+    top: calc(100% + 5px); /* Hiển thị ngay dưới nút Download */
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none; /* Mặc định ẩn */
+    flex-direction: column;
+    width: 200px;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Khi di chuột vào .download-container hoặc .download-options, menu sẽ hiện */
+.download-container:hover .download-options,
+.download-options:hover {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Căn chỉnh các nút PDF và PNG */
+.download-options button {
+    background: none;
+    border: none;
+    padding: 10px 50px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    transition: background 0.3s;
+    width: 100%;
+    font-weight: 500;
+}
+
+/* Hiệu ứng hover */
+.download-options button:hover {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+/* Căn chỉnh icon */
+.download-options button i {
+    font-size: 17px;
+    color: #004080;
+    width: 24px;
+    text-align: center;
+}
+
+/*share*/
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+/* Định vị nút Share về bên phải */
+.share-container {
+    position: absolute;
+    right: 0; /* Đưa nút Share sang phải */
+    margin: 20px;
+    top: 1px
+}
+#share-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+    width: 200px;
+    justify-content: center;
+}
+#share-btn:hover {
+    background-color: #218838;
+}
+.share-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    z-index: 100;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.share-container:hover .share-options,
+.share-options:hover {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+.share-options button {
+    background: none;
+    border: none;
+    padding: 10px 50px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    transition: background 0.3s;
+    width: 100%;
+    font-weight: 500;
+}
+.share-options button:hover {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.share-options button i {
+    font-size: 17px;
+    color: #28a745;
+    width: 24px;
+    text-align: center;
+}
+/* Toast Notification */
+.copy-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(40, 167, 69, 0.95); /* Màu xanh lá */
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hiển thị toast */
+.copy-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* WORK EXPERIENCE - TIÊU ĐỀ */
+.experience h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2C3E50;
+    border-bottom: 2px solid #2C3E50;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* WORK EXPERIENCE - BỐ CỤC */
+.job {
+    display: flex;
+    justify-content: space-between; /* Đưa tên công ty sang trái, thời gian sang phải */
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* TÊN CÔNG TY */
+.job h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C3E50;
+}
+
+/* PHẦN THỜI GIAN NẰM BÊN PHẢI */
+.time {
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap;
+}
+
+/* CHỨC DANH (WORK EXPERIENCE) */
+.job-title {
+    font-style: italic;
+    color: #666;
+    width: 100%; /* Để xuống dòng dưới tên công ty */
+}
+
+/* DANH SÁCH NHIỆM VỤ (WORK EXPERIENCE) */
+.job ul {
+    margin-top: 5px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
